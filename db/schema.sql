@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS teams;
 
 CREATE TABLE teams (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    name VARCHAR(255) UNIQUE,
     wins FLOAT,
     losses FLOAT 
 );
