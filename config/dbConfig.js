@@ -1,5 +1,5 @@
-const db = {
+const opts = {
     database: 'baseball_db'
 }
 
-module.exports = db;
+module.exports = opts;

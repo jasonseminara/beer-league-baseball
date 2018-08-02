@@ -24,8 +24,18 @@ function createTeam(team) {
     `);
 }
 
+function updateTeam(info) {
+    return db.one(`
+    UPDATE teams
+    SET name = $/name/ , wins = $/wins/, losses = $/losses/
+    WHERE id = $/id/
+    RETURNING *
+    `, info)
+}
+
 module.exports = {
     teamIndex,
     oneTeam,
-    createTeam
+    createTeam,
+    updateTeam
 };

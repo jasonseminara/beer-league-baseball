@@ -27,8 +27,18 @@ function createTeam(req, res, next) {
     .catch(e => next(e));
 }
 
+function updateTeam(req, res, next) {
+    debugger
+    db.updateTeam(req.body)
+    .then(info => {
+        res.json(info);
+    })
+    .catch(e => next(e));
+}
+
 module.exports = {
     showAll,
     showOne,
-    createTeam
+    createTeam,
+    updateTeam
 }

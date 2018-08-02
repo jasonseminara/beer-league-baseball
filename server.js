@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const teamRoutes = require('./routes/teamRouter');
-const teamViews = require('./controllers/teamViewController');
 
 const app = express();
 
