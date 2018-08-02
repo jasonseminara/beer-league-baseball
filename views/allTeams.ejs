@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Standings</title>
 </head>
+<%- include('./partials/header') %>
 <body>
     <% teams.forEach(team => { %>
-        <p><%=team.name%>  W: <%=team.wins%>  L: <%=team.losses%> PCT:
+        <p><a href="/<%=team.tname%>/players"><%=team.tname%></a>  W: <%=team.wins%>  L: <%=team.losses%> PCT:
         <%if (team.wins + team.losses > 0) { %>
-          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> 
+          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> </p> 
         <%} else{%> 
             .000</p>
     <%}%>

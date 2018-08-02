@@ -7,6 +7,8 @@ const teamRoutes = require('./routes/teamRouter');
 
 const app = express();
 
+app.use(express.static('public'));
+
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -21,3 +23,4 @@ app.use('/', teamRoutes);
 app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`);
 });
+

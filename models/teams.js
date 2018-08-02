@@ -18,7 +18,7 @@ function oneTeam(name) {
 
 function createTeam(team) {
     return db.one(`
-    INSERT INTO teams (name, wins, losses)
+    INSERT INTO teams (tname, wins, losses)
     VALUES ('${team}', 0, 0)
     RETURNING *
     `);
@@ -27,15 +27,20 @@ function createTeam(team) {
 function updateTeam(info) {
     return db.one(`
     UPDATE teams
-    SET name = $/name/ , wins = $/wins/, losses = $/losses/
+    SET tname = $/name/ , wins = $/wins/, losses = $/losses/
     WHERE id = $/id/
     RETURNING *
     `, info)
+}
+
+function teamIndexCalculation() {
+
 }
 
 module.exports = {
     teamIndex,
     oneTeam,
     createTeam,
-    updateTeam
+    updateTeam,
+    teamIndexCalculation,
 };
