@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Standings</title>
+</head>
+<body>
+    <% teams.forEach(team => { %>
+        <p><%=team.name%>  W: <%=team.wins%>  L: <%=team.losses%> PCT:
+        <%if (team.wins + team.losses > 0) { %>
+          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> 
+        <%} else{%> 
+            .000</p>
+    <%}%>
+    <%}) %>
+</body>
+</html>

@@ -4,6 +4,7 @@ function teamIndex() {
     return db.many(`
     SELECT * 
     FROM teams
+    ORDER BY wins DESC
     `);
 }
 
