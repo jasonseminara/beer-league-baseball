@@ -34,7 +34,11 @@ function updateTeam(info) {
 }
 
 function teamIndexCalculation() {
-
+    return db.one(`
+    SELECT *, 
+        round(coalesce(wins/nullif(wins+losses,0),0)::decimal,3) pct
+    FROM teams;
+    `)
 }
 
 module.exports = {

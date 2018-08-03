@@ -10,7 +10,6 @@ function showAll(req, res, next) {
 }
 
 function showOne(req, res, next) {
-    debugger
     db.onePlayer(req.params.id)
     .then(player => {
         console.log(player);
@@ -29,7 +28,8 @@ function createPlayer(req, res, next) {
 function updatePlayer(req, res, next) {
     db.updatePlayer(req.body)
     .then(data => {
-        res.redirect('/teams');
+        debugger
+        res.redirect(`/${req.body.team}/players`);
     })
 }
 

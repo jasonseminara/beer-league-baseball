@@ -1,8 +1,8 @@
 const { db } = require('../config/connection');
 
 function allPlayers(team) {
-    return db.many(`
-    SELECT *,teams.tname, players.name
+    return db.query(`
+    SELECT *,teams.tname, players.name, players.id
     FROM players
     JOIN teams 
     ON teams.id = players.team_id
@@ -14,7 +14,9 @@ function onePlayer(id) {
     return db.one(`
     SELECT *
     FROM players
-    WHERE id = $1
+    JOIN teams
+    ON teams.id = players.team_id
+    WHERE players.id = $1
     `, id)
 }
 
@@ -26,15 +28,15 @@ function createPlayer(player) {
     `)
 }
 
-// rbi = ${info.rbi}, hbp = ${info.hbp}, ip = ${info.ip}, er = ${info.er}
-// b2 = ${info.b2}, b3 = ${info.b3},
+
 function updatePlayer(info) {
     return db.one(`
     UPDATE players
-    SET name = $/name/, ab = ${info.ab}, walks = ${info.walks}, b1 = ${info.b1}, hr = ${info.hr}
+    SET name = '${info.name}', ab = ${info.ab}, walks = ${info.bb}, b1 = ${info.b1}, hr = ${info.hr},rbi = ${info.rbi}, hbp = ${info.hbp}, ip = ${info.ip}, er = ${info.er},
+    b2 = ${info.b2}, b3 = ${info.b3}
     WHERE id = ${info.id}
     RETURNING *
-    `,info)
+    `)
 }
 
 function deletePlayer(id) {

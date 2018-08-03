@@ -12,9 +12,17 @@
     <% teams.forEach(team => { %>
         <p><a href="/<%=team.tname%>/players"><%=team.tname%></a>  W: <%=team.wins%>  L: <%=team.losses%> PCT:
         <%if (team.wins + team.losses > 0) { %>
-          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> </p> 
+          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> 
+          <form action="/players/<%=team.tname%>/update">
+            <input type="submit" value="Update Record" />
+        </form>
+    </p> 
         <%} else{%> 
-            .000</p>
+            .000
+            <form action="/players/<%=team.tname%>/update"></form>
+                <input action="/players/<%=team.tname%>/update" type="submit" value="Update Record" />
+            </form>
+        </p>
     <%}%>
     <%}) %>
 </body>

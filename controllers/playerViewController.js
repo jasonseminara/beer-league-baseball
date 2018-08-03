@@ -1,6 +1,7 @@
 
 function showAll(req, res) {
-    res.render('players');
+    debugger
+    res.render('players', {name:req.params.team});
 }
 
 function updatePlayer(req, res) {

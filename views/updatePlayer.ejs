@@ -7,6 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <%=data.name%>
+    <form 
+    method="POST"
+    action="/players?_method=PUT">
+
+    <label for="name">Player Name:</label>
+    <input type="text" name="name" id="name" value="<%=data.name%>"><br/>
+    <label for="ab">AB:</label>
+    <input type="number" name="ab" id="ab" value="<%=data.ab%>"><br/>
+    <label for="ab">BB:</label>
+    <input type="number" name="bb" id="bb" value="<%=data.walks%>"><br/>
+    <label for="b1">1B:</label>
+    <input type="number" name="b1" id="b1" value="<%=data.b1%>"><br/>
+    <label for="b2">2B:</label>
+    <input type="number" name="b2" id="b2" value="<%=data.b2%>"><br/>
+    <label for="b3">3B:</label>
+    <input type="number" name="b3" id="b3" value="<%=data.b3%>"><br/>
+    <label for="hr">HR:</label>
+    <input type="number" name="hr" id="hr" value="<%=data.hr%>"><br/>
+    <label for="rbi">RBI:</label>
+    <input type="number" name="rbi" id="rbi" value="<%=data.rbi%>"><br/>
+    <label for="hbp">HBP:</label>
+    <input type="number" name="hbp" id="hbp" value="<%=data.hbp%>"><br/>
+    <label for="ip">IP:</label>
+    <input type="number" name="ip" id="ip" value="<%=data.ip%>"><br/>
+    <label for="ab">ER:</label>
+    <input type="text" name="er" id="er" value="<%=data.er%>"><br/>
+    <input type="hidden" name="id" id="id" value="<%=data.id%>"><br/>
+    <input type="hidden" name="team" id="team" value="<%=data.tname%>"><br/>    
+
+    
+    <input type="submit"/>
+</form>
 </body>
 </html>
