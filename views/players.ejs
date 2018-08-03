@@ -9,9 +9,8 @@
 </head>
 <%- include('./partials/header') %>
     
-<form action="/<%=name%>/<%=id%>/create">
-    <input type="submit" value="Create Player"/>
-    </form>
+<a href="/<%=name%>/<%=id%>/create">Create Player</a>
+    
 <h2 class='teamHeader'><%=name%></h2>
 <body>
         <% players.forEach(player => { %>
@@ -38,9 +37,7 @@
             <% } else {%>
                 OPS: <%='.000'%><%}%>
         </p>
-        <form action="/players/<%=player.id%>/update">
-            <input type="submit" value="Update Player" />
-        </form>
+        <a href="/players/<%=player.id%>/update">Update Player</a>
         <%}) %>
     
 </body>

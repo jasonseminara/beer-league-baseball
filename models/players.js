@@ -10,7 +10,7 @@ function allPlayers(team) {
     ORDER BY players.name
     `, team)
 }
-
+// round(coalesce((b1+b2+b3+hr)/nullif(ab,0),0)::decimal,3) ba
 function onePlayer(id) {
     return db.one(`
     SELECT *, players.id

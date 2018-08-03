@@ -9,21 +9,15 @@
 </head>
 <%- include('./partials/header') %>
 <body>
-        <form action="/teams/create">
-        <input type="submit" value="Create Team"/>
-        </form>
+        <a href="/teams/create">Create Team</a>
     <% teams.forEach(team => { %>
-<form>
         <p class='teamsGrid'>
             <a href="/<%=team.id%>/<%=team.tname%>/players"><%=team.tname%></a>  
             W: <%=team.wins%>  
             L: <%=team.losses%> 
             PCT: <%=team.pct%>
-          <form action="/<%=team.tname%>/update">
-            <input type="submit" value="Edit Team" />
-        </form>
+          <a href="<%=team.tname%>/update">Edit Team</a>
     </p> 
-</form>
     <%}) %>
 </body>
 </html>
