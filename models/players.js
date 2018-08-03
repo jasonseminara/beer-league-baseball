@@ -7,12 +7,13 @@ function allPlayers(team) {
     JOIN teams 
     ON teams.id = players.team_id
     WHERE teams.tname = $1
+    ORDER BY players.name
     `, team)
 }
 
 function onePlayer(id) {
     return db.one(`
-    SELECT *
+    SELECT *, players.id
     FROM players
     JOIN teams
     ON teams.id = players.team_id
@@ -32,8 +33,8 @@ function createPlayer(player) {
 function updatePlayer(info) {
     return db.one(`
     UPDATE players
-    SET name = '${info.name}', ab = ${info.ab}, walks = ${info.bb}, b1 = ${info.b1}, hr = ${info.hr},rbi = ${info.rbi}, hbp = ${info.hbp}, ip = ${info.ip}, er = ${info.er},
-    b2 = ${info.b2}, b3 = ${info.b3}
+    SET name = '${info.name}', ab = ab+${info.ab}, walks = walks+${info.bb}, b1 = b1+${info.b1}, hr = hr+${info.hr},rbi = rbi+${info.rbi}, hbp = hbp+${info.hbp}, ip = ip+${info.ip}, er = er+${info.er},
+    b2 = b2+${info.b2}, b3 = b3+${info.b3}
     WHERE id = ${info.id}
     RETURNING *
     `)

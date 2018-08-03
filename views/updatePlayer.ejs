@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
+        <%- include('./partials/header') %>
     <form 
     method="POST"
-    action="/players?_method=PUT">
+    action="/<%=data.team_id%>/players?_method=PUT">
 
     <label for="name">Player Name:</label>
     <input type="text" name="name" id="name" value="<%=data.name%>"><br/>
     <label for="ab">AB:</label>
-    <input type="number" name="ab" id="ab" value="<%=data.ab%>"><br/>
+    <input type="number" name="ab" id="ab" value="0"><br/>
     <label for="ab">BB:</label>
-    <input type="number" name="bb" id="bb" value="<%=data.walks%>"><br/>
+    <input type="number" name="bb" id="bb" value="0"><br/>
     <label for="b1">1B:</label>
-    <input type="number" name="b1" id="b1" value="<%=data.b1%>"><br/>
+    <input type="number" name="b1" id="b1" value="0"><br/>
     <label for="b2">2B:</label>
-    <input type="number" name="b2" id="b2" value="<%=data.b2%>"><br/>
+    <input type="number" name="b2" id="b2" value="0"><br/>
     <label for="b3">3B:</label>
-    <input type="number" name="b3" id="b3" value="<%=data.b3%>"><br/>
+    <input type="number" name="b3" id="b3" value="0"><br/>
     <label for="hr">HR:</label>
-    <input type="number" name="hr" id="hr" value="<%=data.hr%>"><br/>
+    <input type="number" name="hr" id="hr" value="0"><br/>
     <label for="rbi">RBI:</label>
-    <input type="number" name="rbi" id="rbi" value="<%=data.rbi%>"><br/>
+    <input type="number" name="rbi" id="rbi" value="0"><br/>
     <label for="hbp">HBP:</label>
-    <input type="number" name="hbp" id="hbp" value="<%=data.hbp%>"><br/>
+    <input type="number" name="hbp" id="hbp" value="0"><br/>
     <label for="ip">IP:</label>
-    <input type="number" name="ip" id="ip" value="<%=data.ip%>"><br/>
+    <input type="number" name="ip" id="ip" value="0"><br/>
     <label for="ab">ER:</label>
-    <input type="text" name="er" id="er" value="<%=data.er%>"><br/>
+    <input type="text" name="er" id="er" value="0"><br/>
     <input type="hidden" name="id" id="id" value="<%=data.id%>"><br/>
     <input type="hidden" name="team" id="team" value="<%=data.tname%>"><br/>    
 
     
     <input type="submit"/>
 </form>
+<form method="POST"action="/player/<%=data.tname%>/<%=data.id%>/delete?_method=DELETE">
+    <input class="delete" type="submit" value="Delete Player" />
 </body>
 </html>

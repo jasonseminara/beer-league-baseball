@@ -18,13 +18,18 @@ Router.route('/teams')
 .post(teamController.createTeam, show404)
 .put(teamController.updateTeam, show404 );
 
-Router.get('/:team/players', playerController.showAll, playerViewController.showAll);
-Router.get('/players/:id/update',playerController.showOne, playerViewController.updatePlayer);
-Router.post('/players', playerController.createPlayer);
-Router.put('/players', playerController.updatePlayer);
-Router.delete('/players', playerController.deletePlayer);
+Router.route('/players')
+.delete(playerController.deletePlayer, show404);
 
-//Router.get('/player/:name', playerController.showOne); (Never need to only see one player, only to populate edit form)
-//Router.get('/team/:name', teamController.showOne, show404); (dont need to see one team, only to populate edit form)
+Router.put('/:id/players',playerController.updatePlayer, show404);
+Router.post('/:id/:team/create', playerController.createPlayer, show404);
+Router.get('/:team/update', teamController.showOne, teamViewController.updateTeam);
+Router.get('/:id/:team/players', playerController.showAll, playerViewController.showAll);
+Router.get('/players/:id/update',playerController.showOne, playerViewController.updatePlayer);
+Router.get('/teams/create', teamViewController.createTeam, show404);
+Router.get('/:name/:id/create', playerViewController.createPlayer);
+Router.delete('/teams/:id/delete',teamController.deleteTeam, show404);
+Router.delete('/player/:name/:id/delete', playerController.deletePlayer, show404);
+
 
 module.exports = Router;

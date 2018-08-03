@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+        <%- include('./partials/header') %>
+        <form 
+        method="POST"
+        action="/teams?_method=PUT">
+    
+        <label for="name">Team Name:</label>
+        <input type="text" required="required" name="name" id="name" value="<%=team.tname%>"><br/>
+        <label for="wins">W:</label>
+        <input type="number" required="required" name="wins" id="wins" value="0"><br/>
+        <label for="losses">L:</label>
+        <input type="number" name="losses" id="losses" value="0"><br/>
+        <input type="hidden" name="id" id="id" value="<%=team.id%>"><br/>
+        <input class="button" type="submit" value="Submits"/>
+    </form>
+        
+        <form method="POST"action="/teams/<%=team.id%>/delete?_method=DELETE">
+            <input class="delete" type="submit" value="Delete Team" />
+
+    
+</body>
+</html>

@@ -9,21 +9,21 @@
 </head>
 <%- include('./partials/header') %>
 <body>
+        <form action="/teams/create">
+        <input type="submit" value="Create Team"/>
+        </form>
     <% teams.forEach(team => { %>
-        <p><a href="/<%=team.tname%>/players"><%=team.tname%></a>  W: <%=team.wins%>  L: <%=team.losses%> PCT:
-        <%if (team.wins + team.losses > 0) { %>
-          <%=(team.wins/(team.wins+team.losses)).toFixed(3).toString().slice(1, 5) %> 
-          <form action="/players/<%=team.tname%>/update">
-            <input type="submit" value="Update Record" />
+<form>
+        <p class='teamsGrid'>
+            <a href="/<%=team.id%>/<%=team.tname%>/players"><%=team.tname%></a>  
+            W: <%=team.wins%>  
+            L: <%=team.losses%> 
+            PCT: <%=team.pct%>
+          <form action="/<%=team.tname%>/update">
+            <input type="submit" value="Edit Team" />
         </form>
     </p> 
-        <%} else{%> 
-            .000
-            <form action="/players/<%=team.tname%>/update"></form>
-                <input action="/players/<%=team.tname%>/update" type="submit" value="Update Record" />
-            </form>
-        </p>
-    <%}%>
+</form>
     <%}) %>
 </body>
 </html>

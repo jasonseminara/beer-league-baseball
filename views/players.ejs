@@ -8,7 +8,11 @@
     <title>Document</title>
 </head>
 <%- include('./partials/header') %>
-    <h2><%=name%></h2>
+    
+<form action="/<%=name%>/<%=id%>/create">
+    <input type="submit" value="Create Player"/>
+    </form>
+<h2 class='teamHeader'><%=name%></h2>
 <body>
         <% players.forEach(player => { %>
            <p> <%=player.name%>  

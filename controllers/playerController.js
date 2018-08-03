@@ -21,22 +21,24 @@ function showOne(req, res, next) {
 function createPlayer(req, res, next) {
     db.createPlayer(req.body)
     .then(player => {
-        res.redirect(`/teams`);
+        debugger
+        res.redirect(`/${req.body.id}/${req.body.tname}/players`);
     })
 }
 
 function updatePlayer(req, res, next) {
+    debugger
     db.updatePlayer(req.body)
     .then(data => {
-        debugger
-        res.redirect(`/${req.body.team}/players`);
+        res.redirect(`/${req.params.id}/${req.body.team}/players`);
     })
 }
 
 function deletePlayer(req, res, next) {
-    db.deletePlayer(req.body.id)
+    debugger
+    db.deletePlayer(req.params.id)
     .then(data => {
-        res.redirect('/teams');
+        res.redirect(`/${req.params.id}/${req.params.name}/players`);
     })
 }
 module.exports = {

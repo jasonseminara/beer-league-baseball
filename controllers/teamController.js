@@ -10,9 +10,8 @@ function showAll(req, res, next) {
 }
 
 function showOne(req, res, next) {
-    db.oneTeam(req.params.name)
+    db.oneTeam(req.params.team)
     .then(team => {
-        res.json(team);
         res.locals.team = team;
         next();
     })
@@ -22,23 +21,30 @@ function showOne(req, res, next) {
 function createTeam(req, res, next) {
     db.createTeam(req.body.name)
     .then(team => {
-        res.json(team);
+        res.redirect('/teams');
     })
     .catch(e => next(e));
 }
 
 function updateTeam(req, res, next) {
-    debugger
     db.updateTeam(req.body)
     .then(info => {
-        res.json(info);
+        res.redirect('/teams');
     })
     .catch(e => next(e));
+}
+
+function deleteTeam(req,res, next) {
+    db.deleteTeam(req.params.id)
+    .then(info => {
+        res.redirect('/teams');
+    })
 }
 
 module.exports = {
     showAll,
     showOne,
     createTeam,
-    updateTeam
+    updateTeam,
+    deleteTeam
 }
