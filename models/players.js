@@ -1,8 +1,15 @@
 const { db } = require('../config/connection');
 
+//Calculations for avg,obp,slg and ops done directly in SQL
 function allPlayers(team) {
     return db.query(`
-    SELECT *,teams.tname, players.name, players.id
+    SELECT *,teams.tname, players.name, players.id,
+    round(coalesce((b1+b2+b3+hr)/nullif(ab,0),0)::decimal,3) ba,
+    (b1+b2+b3+hr) hits,
+    round(coalesce((b1+b2+b3+hr+walks+hbp)/nullif((ab+walks+hbp),0),0)::decimal,3) obp,
+    round(coalesce((b1+(b2*2)+(b3*3)+(hr*4))/nullif(ab,0),0)::decimal,3) slg,
+    (round(coalesce((b1+b2+b3+hr+walks+hbp)/nullif((ab+walks+hbp),0),0)::decimal,3))+(round(coalesce((b1+(b2*2)+(b3*3)+(hr*4))/nullif(ab,0),0)::decimal,3)) ops,
+    round(coalesce((9*er)/nullif((ip/3),0),0)::decimal,2) era
     FROM players
     JOIN teams 
     ON teams.id = players.team_id
@@ -10,7 +17,6 @@ function allPlayers(team) {
     ORDER BY players.name
     `, team)
 }
-// round(coalesce((b1+b2+b3+hr)/nullif(ab,0),0)::decimal,3) ba
 function onePlayer(id) {
     return db.one(`
     SELECT *, players.id

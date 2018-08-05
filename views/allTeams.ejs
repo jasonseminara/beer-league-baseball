@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Standings</title>
-</head>
+
 <%- include('./partials/header') %>
-<body>
-        <a href="/teams/create">Create Team</a>
+    <table class="table">
+        <thead>
+            <tr>
+                    <th>Team</th> 
+                    <th><abbr title="Won">W</abbr></th>
+                    <th><abbr title="Lost">L</abbr></th>
+                    <th><abbr title="PCT">PCT</abbr></th>  
+            </tr>
+        </thead>
+        <tbody>
+        <a class="button" href="/teams/create">Create Team</a>
     <% teams.forEach(team => { %>
-        <p class='teamsGrid'>
-            <a href="/<%=team.id%>/<%=team.tname%>/players"><%=team.tname%></a>  
-            W: <%=team.wins%>  
-            L: <%=team.losses%> 
-            PCT: <%=team.pct%>
-          <a href="<%=team.tname%>/update">Edit Team</a>
+        <p>
+            <tr>
+            <td><a class="thead"href="/<%=team.id%>/<%=team.tname%>/players" ><%=team.tname%></a></td>
+            <td><%=team.wins%></td>
+            <td><%=team.losses%></td>
+            <td><%=team.pct.replace(/^[0]+/g,"")%></td>
+          <td><a href="<%=team.tname%>/update" >Edit Team</a></td>
     </p> 
+</tr>
     <%}) %>
+</tbody>
+</table>
+</div>
+</section>
 </body>
 </html>

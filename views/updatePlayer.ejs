@@ -31,10 +31,10 @@
     <input type="number" name="rbi" id="rbi" value="0"><br/>
     <label for="hbp">HBP:</label>
     <input type="number" name="hbp" id="hbp" value="0"><br/>
-    <label for="ip">IP:</label>
+    <label for="ip">Outs Pitched:</label>
     <input type="number" name="ip" id="ip" value="0"><br/>
     <label for="ab">ER:</label>
-    <input type="text" name="er" id="er" value="0"><br/>
+    <input type="number" name="er" id="er" value="0"><br/>
     <input type="hidden" name="id" id="id" value="<%=data.id%>"><br/>
     <input type="hidden" name="team" id="team" value="<%=data.tname%>"><br/>    
 
@@ -42,6 +42,6 @@
     <input type="submit"/>
 </form>
 <form method="POST"action="/player/<%=data.tname%>/<%=data.id%>/delete?_method=DELETE">
-    <input class="delete" type="submit" value="Delete Player" />
+    <input class="button is-danger" type="submit" value="Delete Player" />
 </body>
 </html>

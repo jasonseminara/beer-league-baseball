@@ -9,22 +9,28 @@
 </head>
 <body>
         <%- include('./partials/header') %>
-        <form 
+    <form
         method="POST"
         action="/teams?_method=PUT">
-    
+        <div class="row">
         <label for="name">Team Name:</label>
         <input type="text" required="required" name="name" id="name" value="<%=team.tname%>"><br/>
-        <label for="wins">W:</label>
+        </div>
+        <div class="row">
+        <label for="wins">Wins:</label>
         <input type="number" required="required" name="wins" id="wins" value="0"><br/>
-        <label for="losses">L:</label>
+        </div>
+        <div class="row">
+        <label for="losses">Losses:</label>
         <input type="number" name="losses" id="losses" value="0"><br/>
         <input type="hidden" name="id" id="id" value="<%=team.id%>"><br/>
+        </div>
         <input class="button" type="submit" value="Submit"/>
     </form>
         
         <form method="POST"action="/teams/<%=team.id%>/delete?_method=DELETE">
-            <input class="delete" type="submit" value="Delete Team" />
+            <input class="button is-danger" type="submit" value="Delete Team" />
+        </form>
 
     
 </body>

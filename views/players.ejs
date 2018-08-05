@@ -1,43 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
-</head>
 <%- include('./partials/header') %>
     
 <a href="/<%=name%>/<%=id%>/create">Create Player</a>
+
+<table class="table">
+        <thead>
+            <tr>
+                    <th>Name</th> 
+                    <th><abbr title="AB">AB</abbr></th>
+                    <th><abbr title="AVG">AVG</abbr></th>
+                    <th><abbr title="H">H</abbr></th>
+                    <th><abbr title="HR">HR</abbr></th>
+                    <th><abbr title="RBI">RBI</abbr></th>
+                    <th><abbr title="BB">BB</abbr></th>  
+                    <th><abbr title="OBP">OBP</abbr></th>
+                    <th><abbr title="SLG">SLG</abbr></th>
+                    <th><abbr title="OPS">OPS</abbr></th>
+                    <th><abbr title="OPS">ERA</abbr></th>
+            </tr>
+        </thead>
     
 <h2 class='teamHeader'><%=name%></h2>
 <body>
         <% players.forEach(player => { %>
-           <p> <%=player.name%>  
-            AB: <%=player.ab%> 
-            <%if (player.ab > 0) { %>
-            AVG: <%=((player.b1+player.b2+player.b3+player.hr)/player.ab).toFixed(3).toString().slice(1, 5)%> 
-            <% } else {%>
-                AVG: <%='.000'%><%}%>
-            HR: <%=player.hr%>  
-            RBI: <%=player.rbi%> 
-            H: <%=player.b1+player.b2+player.b3+player.hr%> 
-            BB: <%=player.walks%> 
-            <%if ((player.ab+player.walks+player.hbp) > 0) { %>
-            OBP: <%=((player.b1+player.b2+player.b3+player.hr+player.walks+player.hbp)/(player.ab+player.walks+player.hbp)).toFixed(3).toString().slice(1, 5)%>
-            <% } else {%>
-                OBP: <%='.000'%><%}%>
-            <%if (player.ab > 0) { %>
-            SLG: <%=(((player.b1)+(player.b2*2)+(player.b3)+(player.hr*4))/player.ab).toFixed(3)%>
-            <% } else {%>
-                SLG: <%='.000'%><%}%>
-            <%if ((player.ab+player.walks+player.hbp) > 0) { %>
-            OPS: <%=(((player.b1+player.b2+player.b3+player.hr+player.walks+player.hbp)/(player.ab+player.walks+player.hbp))+(((player.b1)+(player.b2*2)+(player.b3)+(player.hr*4))/player.ab)).toFixed(3)%>
-            <% } else {%>
-                OPS: <%='.000'%><%}%>
+           <p> 
+            <tr>
+            <td><%=player.name%></td>  
+            <td><%=player.ab%></td> 
+            <td><%=player.ba.replace(/^[0]+/g,"");%></td> 
+            <td><%=player.hits%></td> 
+            <td><%=player.hr%></td>
+            <td><%=player.rbi%></td>
+            <td><%=player.walks%></td> 
+            <td><%=player.obp.replace(/^[0]+/g,"");%></td>
+            <td><%=player.slg.replace(/^[0]+/g,"")%></td>
+            <td><%=player.ops.replace(/^[0]+/g,"")%></td>
+            <td><%=player.era%></td>
         </p>
-        <a href="/players/<%=player.id%>/update">Update Player</a>
+        <td><a href="/players/<%=player.id%>/update">Update</a></td>
+    </tr>
         <%}) %>
     
 </body>

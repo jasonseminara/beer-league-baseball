@@ -19,7 +19,7 @@ CREATE TABLE players (
     b3 FLOAT,
     hr FLOAT,
     rbi SMALLINT,
-    hbp SMALLINT,
-    ip SMALLINT,
-    er SMALLINT
+    hbp FLOAT,
+    ip FLOAT,
+    er FLOAT
 )

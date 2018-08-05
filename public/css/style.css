@@ -31,6 +31,8 @@ img {
 }
 
 form {
+    margin: auto;
+    /* display:table; */
     font-size: 25px;
 }
 
@@ -39,21 +41,26 @@ form {
     margin-top: 10px;
 }
 
-.delete {
-    background-color: red;
-    color: white; 
-}
-
 label {
     font-size: 25px;
+    /* display: table-cell; */
+    text-align: right;
 }
 
 input {
+    margin-left: 5px;
     font-size: 20px;
 }
 
 .button {
-    padding: 20px;
-    font-size: 30px;
     margin-bottom: 8px;
+}
+
+.table {
+    margin: auto;
+    font-size: 25px;
+}
+
+.row {
+    display: table-row;
 }
