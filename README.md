@@ -36,7 +36,7 @@ When you select a team all the players on that team are displayed. You can then 
 
 ### Technologies Used
 
-To create this web app some external technologies and packages were used. I used npm packages Express, Morgan, EJS, Body-Parser, Method-Override, PG-Promise, ES-Lint and Nodemon. I used the Bulma CSS framework to style my pages and set up the tables.
+To create this web app some external technologies and packages were used. I used npm packages Express, Morgan, EJS, Body-Parser, Method-Override, PG-Promise, ES-Lint and Nodemon. I used the Bulma CSS framework to style my pages and set up the tables. The code is written in accordance with the AirBnb style guide.
 
 ### User Stories
 
