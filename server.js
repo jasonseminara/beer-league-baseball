@@ -1,6 +1,6 @@
 const express = require('express');
 const logger = require('morgan');
-const bodyParser = require('body-parser'); 
+const bodyParser = require('body-parser');
 const path = require('path');
 const methodOverride = require('method-override');
 
@@ -25,6 +25,5 @@ app.use(bodyParser.json());
 app.use('/', teamRoutes);
 
 app.listen(PORT, () => {
-    console.log(`listening on port: ${PORT}`);
+  console.log(`listening on port: ${PORT}`);
 });
-

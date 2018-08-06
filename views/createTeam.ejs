@@ -39,6 +39,7 @@
       })
       .catch(e => {
         document.querySelector('.input').classList.toggle('is-danger');
+        document.querySelector('.help').innerHTML = "Team name already in use";
       })
     })
     </script>

@@ -1,7 +1,7 @@
 const { db } = require('../config/connection');
 
 function teamIndex() {
-    return db.many(`
+  return db.many(`
     SELECT *, 
     round(coalesce(wins/nullif(wins+losses,0),0)::decimal,3) pct
     FROM teams
@@ -10,50 +10,50 @@ function teamIndex() {
 }
 
 function oneTeam(name) {
-    return db.one(`
+  return db.one(`
     SELECT *
     FROM teams
     WHERE tname = $1
-    `, name)
+    `, name);
 }
 
 function validateName(name) {
-    return db.none(`
+  return db.none(`
     SELECT *
     FROM teams 
     WHERE tname = $1
-    `, name)
+    `, name);
 }
 
 function createTeam(team) {
-    return db.one(`
+  return db.one(`
     INSERT INTO teams (tname, wins, losses)
     VALUES ($1, 0, 0)
     RETURNING *
-    `,team);
+    `, team);
 }
 
 function updateTeam(info) {
-    return db.one(`
+  return db.one(`
     UPDATE teams
     SET tname = $/name/ , wins = wins+${info.wins}, losses = losses+${info.losses}
     WHERE id = $/id/
     RETURNING *
-    `, info)
+    `, info);
 }
 
 function deleteTeam(id) {
-    return db.none(`
+  return db.none(`
     DELETE FROM teams
     WHERE id = $1
-`, id)
+`, id);
 }
 
 module.exports = {
-    teamIndex,
-    oneTeam,
-    validateName,
-    createTeam,
-    updateTeam,
-    deleteTeam
+  teamIndex,
+  oneTeam,
+  validateName,
+  createTeam,
+  updateTeam,
+  deleteTeam,
 };

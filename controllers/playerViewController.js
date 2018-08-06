@@ -1,18 +1,18 @@
 
 function showAll(req, res) {
-    res.render('players', {name:req.params.team, id:req.params.id});
+  res.render('players', { name: req.params.team, id: req.params.id });
 }
 
 function updatePlayer(req, res) {
-    res.render('updatePlayer');
+  res.render('updatePlayer');
 }
 
 function createPlayer(req, res) {
-    res.render('createPlayer', {id:req.params.id, name:req.params.name});
+  res.render('createPlayer', { id: req.params.id, name: req.params.name });
 }
 
 module.exports = {
-    showAll,
-    updatePlayer,
-    createPlayer
-}
+  showAll,
+  updatePlayer,
+  createPlayer,
+};

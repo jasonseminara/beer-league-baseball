@@ -1,5 +1,5 @@
 const opts = {
-    database: 'baseball_db'
-}
+  database: 'baseball_db',
+};
 
 module.exports = opts;

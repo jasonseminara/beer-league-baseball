@@ -1,7 +1,13 @@
+html {
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.4) 100%), url('https://thealteza.com/wp-content/uploads/2015/10/BASEBALL1.jpg');
+    background-size: cover; 
+    background-attachment: fixed;
+}
 .header {
     text-align: center;
     color: black;
-    background: lightblue;
+    background: rgba(173, 216, 230, 0.9);
     font-size: 25px;
     margin-right: -8px;
     margin-left: -8px;
@@ -13,10 +19,11 @@
 
 h2 {
     margin-top: -8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */  
 }
 
 body {
+    height: 100%;
     text-align: center;
 }
 
@@ -32,6 +39,9 @@ form {
 .teamHeader {
     font-size: 30px;
     margin-top: 10px;
+    margin-left: 9px;
+    background-color: white;
+    width: 1135px;
 }
 
 label {
@@ -40,7 +50,7 @@ label {
 }
 
 input {
-    margin-left: 5px;
+    /* margin-left: 5px; */
     font-size: 20px;
 }
 
@@ -51,6 +61,7 @@ input {
 .table {
     margin: auto;
     font-size: 25px;
+    width: 1135px;
 }
 
 .row {
@@ -58,8 +69,10 @@ input {
 }
 
 .field {
-    width: 250px;
+    width: 350px;
     margin: auto;
+    background-color: white;
+    padding: 5px;
 }
 
 .label {
@@ -68,4 +81,8 @@ input {
 
 .form-input {
     width: 250px;
+}
+
+.input-under {
+    margin-top: -20px;
 }

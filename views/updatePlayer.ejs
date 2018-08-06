@@ -3,34 +3,79 @@
     <form 
     method="POST"
     action="/<%=data.team_id%>/players?_method=PUT">
-
-    <label for="name">Player Name:</label>
-    <input type="text" name="name" id="name" value="<%=data.name%>"><br/>
-    <label for="ab">AB:</label>
-    <input type="number" name="ab" id="ab" value="0"><br/>
-    <label for="ab">BB:</label>
-    <input type="number" name="bb" id="bb" value="0"><br/>
-    <label for="b1">1B:</label>
-    <input type="number" name="b1" id="b1" value="0"><br/>
-    <label for="b2">2B:</label>
-    <input type="number" name="b2" id="b2" value="0"><br/>
-    <label for="b3">3B:</label>
-    <input type="number" name="b3" id="b3" value="0"><br/>
-    <label for="hr">HR:</label>
-    <input type="number" name="hr" id="hr" value="0"><br/>
-    <label for="rbi">RBI:</label>
-    <input type="number" name="rbi" id="rbi" value="0"><br/>
-    <label for="hbp">HBP:</label>
-    <input type="number" name="hbp" id="hbp" value="0"><br/>
-    <label for="ip">Outs Pitched:</label>
-    <input type="number" name="ip" id="ip" value="0"><br/>
-    <label for="ab">ER:</label>
-    <input type="number" name="er" id="er" value="0"><br/>
-    <input type="hidden" name="id" id="id" value="<%=data.id%>"><br/>
-    <input type="hidden" name="team" id="team" value="<%=data.tname%>"><br/>    
+    <div class="field">
+            <label for="name" class="label">Player Name</label>
+           <div class="control">
+             <input class="form-input" type="text" required="required" name="name" id="name" value="<%=data.name%>">
+           </div>
+         </div>
+    <div class="field input-under">
+            <label for="ab" class="label">AB</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="ab" id="ab" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="bb" class="label">BB</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="bb" id="bb" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="b1" class="label">1B</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="b1" id="b1" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="b2" class="label">2B</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="b2" id="b2" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="b3" class="label">3B</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="b3" id="b3" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="hr" class="label">HR</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="hr" id="hr" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="rbi" class="label">RBI</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="rbi" id="rbi" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="hbp" class="label">HBP</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="hbp" id="hbp" value="0">
+            </div>
+            </div>
+    <div class="field input-under">
+            <label for="ip" class="label">Outs Pitched</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="ip" id="ip" value="0">
+            </div>
+            <p class="help">Enter amount of outs a pitcher got ex. 2.2 ip is 8 outs</p>
+            </div>
+    <div class="field input-under">
+            <label for="er" class="label">ER</label>
+            <div class="control">
+                <input class="form-input" type="number" required="required" name="er" id="er" value="0">
+            </div>
+            <p class="help">Amount of earned runs a pitcher gave up</p>
+            </div>
+    <input type="hidden" name="id" id="id" value="<%=data.id%>">
+    <input type="hidden" name="team" id="team" value="<%=data.tname%>">    
 
     
-    <input type="submit"/>
+    <input class="button" type="submit"/>
 </form>
 <form method="POST"action="/player/<%=data.tname%>/<%=data.id%>/delete?_method=DELETE">
     <input class="button is-danger" type="submit" value="Delete Player" />

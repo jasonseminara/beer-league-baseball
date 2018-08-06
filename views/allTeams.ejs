@@ -1,7 +1,7 @@
 
 <%- include('./partials/header') %>
     <table class="table">
-        <a class="button" href="/teams/create">Create Team</a>
+        <a class="button" href="/teams/new">Create Team</a>
         <thead>
             <tr>
                     <th>Team</th> 
@@ -18,7 +18,7 @@
             <td><%=team.wins%></td>
             <td><%=team.losses%></td>
             <td><%=team.pct.replace(/^[0]+/g,"")%></td>
-          <td><a href="<%=team.tname%>/update" >Edit Team</a></td>
+          <td><a href="<%=team.tname%>/edit" >Edit Team</a></td>
     </p> 
 </tr>
     <%}) %>

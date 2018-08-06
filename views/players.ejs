@@ -1,10 +1,11 @@
 <%- include('./partials/header') %>
     
-<a href="/<%=name%>/<%=id%>/create">Create Player</a>
+<a class="button" href="/<%=name%>/<%=id%>/new">Create Player</a>
 
 <table class="table">
         <thead>
             <tr>
+                <h2 class='teamHeader'><%=name%></h2>
                     <th>Name</th> 
                     <th><abbr title="AB">AB</abbr></th>
                     <th><abbr title="AVG">AVG</abbr></th>
@@ -18,8 +19,7 @@
                     <th><abbr title="OPS">ERA</abbr></th>
             </tr>
         </thead>
-    
-<h2 class='teamHeader'><%=name%></h2>
+
 <body>
         <% players.forEach(player => { %>
            <p> 
@@ -36,7 +36,7 @@
             <td><%=player.ops.replace(/^[0]+/g,"")%></td>
             <td><%=player.era%></td>
         </p>
-        <td><a href="/players/<%=player.id%>/update">Update</a></td>
+        <td><a href="/players/<%=player.id%>/edit">Edit</a></td>
     </tr>
         <%}) %>
     

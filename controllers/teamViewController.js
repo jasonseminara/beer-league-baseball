@@ -1,18 +1,18 @@
 
 function showAll(req, res) {
-    res.render('allTeams');
+  res.render('allTeams');
 }
 
 function updateTeam(req, res) {
-    res.render('updateTeam');
+  res.render('updateTeam');
 }
 
 function createTeam(req, res) {
-    res.render('createTeam');
+  res.render('createTeam');
 }
 
 module.exports = {
-    showAll,
-    updateTeam,
-    createTeam
-}
+  showAll,
+  updateTeam,
+  createTeam,
+};
