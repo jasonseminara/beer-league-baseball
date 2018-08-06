@@ -19,6 +19,7 @@ function allPlayers(id) {
     ORDER BY players.name
     `, id);
 }
+
 function onePlayer(id) {
   return db.one(`
     SELECT *, players.id
@@ -32,19 +33,19 @@ function onePlayer(id) {
 function createPlayer(player) {
   return db.one(`
     INSERT INTO players (name, team_id, ab, walks, b1, b2, b3, hr, rbi, hbp, ip, er)
-    VALUES ('${player.name}', ${player.id}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    VALUES ($/name/, $/id/, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     Returning *
-    `);
+    `, player);
 }
 
 function updatePlayer(info) {
   return db.one(`
     UPDATE players
-    SET name = '${info.name}', ab = ab+${info.ab}, walks = walks+${info.bb}, b1 = b1+${info.b1}, hr = hr+${info.hr},rbi = rbi+${info.rbi}, hbp = hbp+${info.hbp}, ip = ip+${info.ip}, er = er+${info.er},
-    b2 = b2+${info.b2}, b3 = b3+${info.b3}
-    WHERE id = ${info.id}
+    SET name = $/name/, ab = ab+$/ab/, walks = walks+$/bb/, b1 = b1+$/b1/, hr = hr+$/hr/,rbi = rbi+$/rbi/, 
+    hbp = hbp+$/hbp/, ip = ip+$/ip/, er = er+$/er/, b2 = b2+$/b2/, b3 = b3+$/b3/
+    WHERE id = $/id/
     RETURNING *
-    `);
+    `, info);
 }
 
 function deletePlayer(id) {

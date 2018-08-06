@@ -17,6 +17,7 @@ function oneTeam(name) {
     `, name);
 }
 
+// Used to ensure a new team name is not already in the database
 function validateName(name) {
   return db.none(`
     SELECT *
@@ -36,7 +37,7 @@ function createTeam(team) {
 function updateTeam(info) {
   return db.one(`
     UPDATE teams
-    SET tname = $/name/ , wins = wins+${info.wins}, losses = losses+${info.losses}
+    SET tname = $/name/ , wins = wins+$/wins/, losses = losses+$/losses/
     WHERE id = $/id/
     RETURNING *
     `, info);

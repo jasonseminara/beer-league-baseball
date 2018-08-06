@@ -31,7 +31,7 @@ function validateTeam(req, res) {
 function createTeam(req, res, next) {
   db.createTeam(req.body.name)
     .then(() => {
-      res.redirect('/teams');
+      next();
     })
     .catch(next);
 }
@@ -39,16 +39,17 @@ function createTeam(req, res, next) {
 function updateTeam(req, res, next) {
   db.updateTeam(req.body)
     .then(() => {
-      res.redirect('/teams');
+      next();
     })
     .catch(next);
 }
 
-function deleteTeam(req, res) {
+function deleteTeam(req, res, next) {
   db.deleteTeam(req.params.id)
     .then(() => {
-      res.redirect('/teams');
-    });
+      next();
+    })
+    .catch(next);
 }
 
 module.exports = {

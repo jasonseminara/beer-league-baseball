@@ -11,8 +11,13 @@ function createTeam(req, res) {
   res.render('createTeam');
 }
 
+function handleRedirect(req, res) {
+  res.redirect('/teams');
+}
+
 module.exports = {
   showAll,
   updateTeam,
   createTeam,
+  handleRedirect,
 };

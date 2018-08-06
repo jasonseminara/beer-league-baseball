@@ -5,7 +5,8 @@ function showAll(req, res, next) {
     .then((players) => {
       res.locals.players = players;
       next();
-    });
+    })
+    .catch(next);
 }
 
 function showOne(req, res, next) {
@@ -13,28 +14,35 @@ function showOne(req, res, next) {
     .then((player) => {
       res.locals.data = player;
       next();
-    });
+    })
+    .catch(next);
 }
 
-function createPlayer(req, res) {
+function createPlayer(req, res, next) {
   db.createPlayer(req.body)
     .then(() => {
-      res.redirect(`/teams/${req.body.id}/players`);
-    });
+      res.locals.redirect = `/teams/${req.body.id}/players`;
+      next();
+    })
+    .catch(next);
 }
 
-function updatePlayer(req, res) {
+function updatePlayer(req, res, next) {
   db.updatePlayer(req.body)
     .then(() => {
-      res.redirect(`/teams/${req.params.id}/players`);
-    });
+      res.locals.redirect = `/teams/${req.params.id}/players`;
+      next();
+    })
+    .catch(next);
 }
 
-function deletePlayer(req, res) {
+function deletePlayer(req, res, next) {
   db.deletePlayer(req.params.id)
     .then(() => {
-      res.redirect(`/teams/${req.query.team_id}/players`);
-    });
+      res.locals.redirect = `/teams/${req.query.team_id}/players`;
+      next();
+    })
+    .catch(next);
 }
 module.exports = {
   showAll,
