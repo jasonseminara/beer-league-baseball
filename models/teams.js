@@ -13,7 +13,7 @@ function oneTeam(name) {
   return db.one(`
     SELECT *
     FROM teams
-    WHERE tname = $1
+    WHERE id = $1
     `, name);
 }
 

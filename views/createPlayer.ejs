@@ -1,7 +1,7 @@
         <%- include('./partials/header') %>
         <form 
         method="POST"
-        action="/<%=id%>/<%=name%>/new">
+        action="/teams/<%=id%>/newplayer">
         <div class="field">
             <label for="name" class="label">New Player Name:</label>
             <div class="control">
@@ -9,7 +9,6 @@
             </div>
         </div>
         <input type="hidden" name="id" id="id" value="<%=id%>">
-        <input type="hidden" name="tname" id="tname" value="<%=name%>">
         <input type="submit" value="Submit"/>
 </body>
 </html>

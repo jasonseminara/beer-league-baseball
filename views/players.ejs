@@ -1,8 +1,8 @@
 <%- include('./partials/header') %>
     
-<a class="button" href="/<%=name%>/<%=id%>/new">Create Player</a>
+<a class="button" href="/teams/<%=id%>/newplayer">Create Player</a>
 
-<table class="table">
+<table class="table updateTable">
         <thead>
             <tr>
                 <h2 class='teamHeader'><%=name%></h2>
@@ -16,7 +16,9 @@
                     <th><abbr title="OBP">OBP</abbr></th>
                     <th><abbr title="SLG">SLG</abbr></th>
                     <th><abbr title="OPS">OPS</abbr></th>
-                    <th><abbr title="OPS">ERA</abbr></th>
+                    <th><abbr title="IP">IP</abbr></th>
+                    <th><abbr title="ER">ER</abbr></th>
+                    <th><abbr title="ERA">ERA</abbr></th>
             </tr>
         </thead>
 
@@ -34,9 +36,11 @@
             <td><%=player.obp.replace(/^[0]+/g,"");%></td>
             <td><%=player.slg.replace(/^[0]+/g,"")%></td>
             <td><%=player.ops.replace(/^[0]+/g,"")%></td>
+            <td><%=player.ips%>.<%=player.outs%></td>
+            <td><%=player.er%></td>
             <td><%=player.era%></td>
         </p>
-        <td><a href="/players/<%=player.id%>/edit">Edit</a></td>
+        <td><a class="edit" href="/players/<%=player.id%>/edit">Edit</a></td>
     </tr>
         <%}) %>
     

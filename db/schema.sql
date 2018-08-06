@@ -20,6 +20,6 @@ CREATE TABLE players (
     hr FLOAT,
     rbi SMALLINT,
     hbp FLOAT,
-    ip FLOAT,
+    ip INT,
     er FLOAT
 )

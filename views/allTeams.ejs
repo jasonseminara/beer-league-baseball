@@ -1,6 +1,6 @@
 
 <%- include('./partials/header') %>
-    <table class="table">
+    <table class="table teams">
         <a class="button" href="/teams/new">Create Team</a>
         <thead>
             <tr>
@@ -14,11 +14,11 @@
     <% teams.forEach(team => { %>
         <p>
             <tr>
-            <td><a class="thead"href="/<%=team.id%>/<%=team.tname%>/players" ><%=team.tname%></a></td>
+            <td><a class="thead"href="/teams/<%=team.id%>/players?team=<%=team.tname%>"><%=team.tname%></a></td>
             <td><%=team.wins%></td>
             <td><%=team.losses%></td>
             <td><%=team.pct.replace(/^[0]+/g,"")%></td>
-          <td><a href="<%=team.tname%>/edit" >Edit Team</a></td>
+          <td><a class="edit" href="/teams/<%=team.id%>/edit">Edit Team</a></td>
     </p> 
 </tr>
     <%}) %>

@@ -14,31 +14,28 @@ const show404 = (err, req, res, next) => {
 Router.get('/', (req, res) => res.redirect('/teams'));
 
 Router.route('/teams')
-  .get(teamController.showAll, teamViewController.showAll, show404)
-  .post(teamController.createTeam, show404)
-  .put(teamController.updateTeam, show404);
+  .get(teamController.showAll, teamViewController.showAll)
+  .post(teamController.createTeam)
+  .put(teamController.updateTeam);
 
-Router.route('/players')
-  .delete(playerController.deletePlayer, show404);
-
+Router.get('/teams/:id/edit', teamController.showOne, teamViewController.updateTeam);
+Router.delete('/teams/:id/delete', teamController.deleteTeam);
+Router.get('/teams/new', teamViewController.createTeam);
 // Only for AJAX
 Router.post('/teams/validate', teamController.validateTeam);
 
-Router.route('/teams/:id/players');
+// Show all players on specific team
+Router.get('/teams/:id/players', playerController.showAll, playerViewController.showAll);
 
+Router.route('/teams/:id/newplayer')
+  .get(playerViewController.createPlayer)
+  .post(playerController.createPlayer);
 
-Router.get('/:team/edit', teamController.showOne, teamViewController.updateTeam);
-Router.get('/:id/:team/players', playerController.showAll, playerViewController.showAll);
-Router.get('/players/:id/edit', playerController.showOne, playerViewController.updatePlayer);
-Router.get('/teams/new', teamViewController.createTeam);
-Router.get('/:name/:id/new', playerViewController.createPlayer);
+Router.route('/players/:id/edit')
+  .get(playerController.showOne, playerViewController.updatePlayer)
+  .put(playerController.updatePlayer);
 
-Router.put('/:id/players', playerController.updatePlayer);
-
-Router.post('/:id/:team/new', playerController.createPlayer);
-
-Router.delete('/teams/:id/delete', teamController.deleteTeam);
-Router.delete('/player/:name/:id/delete', playerController.deletePlayer);
+Router.delete('/players/:id/delete', playerController.deletePlayer);
 
 Router.use(show404);
 Router.get('*', (req, res) => {

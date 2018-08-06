@@ -1,7 +1,7 @@
 const db = require('../models/players');
 
 function showAll(req, res, next) {
-  db.allPlayers(req.params.team)
+  db.allPlayers(req.params.id)
     .then((players) => {
       res.locals.players = players;
       next();
@@ -19,21 +19,21 @@ function showOne(req, res, next) {
 function createPlayer(req, res) {
   db.createPlayer(req.body)
     .then(() => {
-      res.redirect(`/${req.body.id}/${req.body.tname}/players`);
+      res.redirect(`/teams/${req.body.id}/players`);
     });
 }
 
 function updatePlayer(req, res) {
   db.updatePlayer(req.body)
     .then(() => {
-      res.redirect(`/${req.params.id}/${req.body.team}/players`);
+      res.redirect(`/teams/${req.params.id}/players`);
     });
 }
 
 function deletePlayer(req, res) {
   db.deletePlayer(req.params.id)
     .then(() => {
-      res.redirect(`/${req.params.id}/${req.params.name}/players`);
+      res.redirect(`/teams/${req.query.team_id}/players`);
     });
 }
 module.exports = {

@@ -10,7 +10,7 @@ function showAll(req, res, next) {
 }
 
 function showOne(req, res, next) {
-  db.oneTeam(req.params.team)
+  db.oneTeam(req.params.id)
     .then((team) => {
       res.locals.team = team;
       next();

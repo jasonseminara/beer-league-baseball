@@ -1,6 +1,6 @@
 
 function showAll(req, res) {
-  res.render('players', { name: req.params.team, id: req.params.id });
+  res.render('players', { name: req.query.team, id: req.params.id });
 }
 
 function updatePlayer(req, res) {

@@ -2,7 +2,7 @@
         <%- include('./partials/header') %>
     <form 
     method="POST"
-    action="/<%=data.team_id%>/players?_method=PUT">
+    action="/players/<%=data.team_id%>/edit?_method=PUT">
     <div class="field">
             <label for="name" class="label">Player Name</label>
            <div class="control">
@@ -77,7 +77,7 @@
     
     <input class="button" type="submit"/>
 </form>
-<form method="POST"action="/player/<%=data.tname%>/<%=data.id%>/delete?_method=DELETE">
+<form method="POST"action="/players/<%=data.id%>/delete?_method=DELETE&team_id=<%=data.team_id%>">
     <input class="button is-danger" type="submit" value="Delete Player" />
 </body>
 </html>

@@ -17,13 +17,16 @@ html {
     padding-top: 35px;
 }
 
+.title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 40px;
+}
+
 h2 {
-    margin-top: -8px;
-    /* margin-bottom: 10px; */  
+    margin-top: -8px;  
 }
 
 body {
-    height: 100%;
     text-align: center;
 }
 
@@ -39,18 +42,12 @@ form {
 .teamHeader {
     font-size: 30px;
     margin-top: 10px;
-    margin-left: 9px;
+    margin-left: 1px;
     background-color: white;
-    width: 1135px;
-}
-
-label {
-    font-size: 25px;
-    text-align: right;
+    width: 1150px;
 }
 
 input {
-    /* margin-left: 5px; */
     font-size: 20px;
 }
 
@@ -60,8 +57,15 @@ input {
 
 .table {
     margin: auto;
-    font-size: 25px;
-    width: 1135px;
+    font-size: 20px;
+}
+
+.teams {
+   font-size: 24px;
+}
+
+.updateTable {
+    width: 1150px;
 }
 
 .row {
@@ -85,4 +89,8 @@ input {
 
 .input-under {
     margin-top: -20px;
+}
+
+.edit {
+    font-size: 18px;
 }
