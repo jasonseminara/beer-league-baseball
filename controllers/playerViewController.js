@@ -8,7 +8,6 @@ function updatePlayer(req, res) {
 }
 
 function createPlayer(req, res) {
-    debugger
     res.render('createPlayer', {id:req.params.id, name:req.params.name});
 }
 

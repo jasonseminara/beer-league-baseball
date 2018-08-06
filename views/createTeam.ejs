@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Create Team</title>
-</head>
-<body>
+
         <%- include('./partials/header') %>
         <form 
         method="POST"
         action="/teams">
     
-        <label for="name">New Team Name:</label>
-        <input type="text" name="name" id="name" required="required" value=""><br/>
+        <div class="field">
+                <label for="name" class="label">New Team Name:</label>
+               <div class="control">
+                 <input class="form-input" type="text" required="required" name="name" id="name" value="">
+               </div>
+               <p class="help">Please make sure team name is not already in use</p>
+             </div>
         <input class="button" type="submit" value="Submit"/>
     
 </body>

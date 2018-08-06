@@ -24,15 +24,8 @@ p {
     font-size: 23px;
 }
 
-img {
-    height: 106px;
-    width: 263px;
-    float: left;
-}
-
 form {
     margin: auto;
-    /* display:table; */
     font-size: 25px;
 }
 
@@ -43,7 +36,6 @@ form {
 
 label {
     font-size: 25px;
-    /* display: table-cell; */
     text-align: right;
 }
 
@@ -63,4 +55,17 @@ input {
 
 .row {
     display: table-row;
+}
+
+.field {
+    width: 250px;
+    margin: auto;
+}
+
+.label {
+    text-align: left;
+}
+
+.form-input {
+    width: 250px;
 }

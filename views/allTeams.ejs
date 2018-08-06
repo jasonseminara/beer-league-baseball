@@ -1,6 +1,7 @@
 
 <%- include('./partials/header') %>
     <table class="table">
+        <a class="button" href="/teams/create">Create Team</a>
         <thead>
             <tr>
                     <th>Team</th> 
@@ -10,7 +11,6 @@
             </tr>
         </thead>
         <tbody>
-        <a class="button" href="/teams/create">Create Team</a>
     <% teams.forEach(team => { %>
         <p>
             <tr>
