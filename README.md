@@ -51,7 +51,8 @@ As the relative of somebody playing in a baseball league I would like to be able
 
 ### ERD
 
-![20180731_172534](https://user-images.githubusercontent.com/30534934/43743107-82892364-99a2-11e8-8608-4c7989d26f7e.jpg)
+![erd for baseball app 1](https://user-images.githubusercontent.com/30534934/43745560-6e5e51ba-99ad-11e8-880f-48a0b63544ba.png)
+
 
 ### Future Plans
 
