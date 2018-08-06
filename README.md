@@ -38,6 +38,8 @@ When you select a team all the players on that team are displayed. You can then 
 
 To create this web app some external technologies and packages were used. I used npm packages Express, Morgan, EJS, Body-Parser, Method-Override, PG-Promise, ES-Lint and Nodemon. I used the Bulma CSS framework to style my pages and set up the tables. The code is written in accordance with the AirBnb style guide.
 
+My instructor Jason Seminara helped me with the SQL queries and the code to validate a team name and make sure it's not a duplicate.
+
 ### User Stories
 
 As the commissioner of a baseball league I would like to be able to  create, update and delete if necessary teams and players throughout the season.
