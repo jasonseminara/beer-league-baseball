@@ -17,6 +17,14 @@ function oneTeam(name) {
     `, name)
 }
 
+function validateName(name) {
+    return db.none(`
+    SELECT *
+    FROM teams 
+    WHERE tname = $1
+    `, name)
+}
+
 function createTeam(team) {
     return db.one(`
     INSERT INTO teams (tname, wins, losses)
@@ -44,6 +52,7 @@ function deleteTeam(id) {
 module.exports = {
     teamIndex,
     oneTeam,
+    validateName,
     createTeam,
     updateTeam,
     deleteTeam

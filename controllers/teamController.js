@@ -18,6 +18,16 @@ function showOne(req, res, next) {
     .catch(e => next(e));
 }
 
+function validateTeam(req, res, next) {
+    db.validateName(req.body.name)
+    .then(data => {
+        res.sendStatus(200);
+    })
+    .catch(e => {
+        res.sendStatus(400);
+    })
+}
+
 function createTeam(req, res, next) {
     db.createTeam(req.body.name)
     .then(team => {
@@ -44,6 +54,7 @@ function deleteTeam(req,res, next) {
 module.exports = {
     showAll,
     showOne,
+    validateTeam,
     createTeam,
     updateTeam,
     deleteTeam

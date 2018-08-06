@@ -2,16 +2,45 @@
         <%- include('./partials/header') %>
         <form 
         method="POST"
-        action="/teams">
+        action="/teams"
+        id="createTeam">
     
         <div class="field">
                 <label for="name" class="label">New Team Name:</label>
                <div class="control">
-                 <input class="form-input" type="text" required="required" name="name" id="name" value="">
+                 <input class="input" type="text" required="required" name="name" id="name" value="">
                </div>
                <p class="help">Please make sure team name is not already in use</p>
              </div>
-        <input class="button" type="submit" value="Submit"/>
+             <input class="button" type="submit" value="Submit"/>
     
+    <script>
+    const createTeam = document.querySelector('#createTeam');
+    createTeam.addEventListener('submit', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const form = event.target;
+      const pendingName = form[0].value;
+      // Checks team name against database to ensure no duplicates
+      fetch('/teams/validate', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: pendingName
+        })
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw res.statusText;
+        }
+        form.submit();
+      })
+      .catch(e => {
+        document.querySelector('.input').classList.toggle('is-danger');
+      })
+    })
+    </script>
 </body>
 </html>

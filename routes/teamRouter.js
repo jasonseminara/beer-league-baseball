@@ -21,13 +21,20 @@ Router.route('/teams')
 Router.route('/players')
 .delete(playerController.deletePlayer, show404);
 
-Router.put('/:id/players',playerController.updatePlayer, show404);
-Router.post('/:id/:team/create', playerController.createPlayer, show404);
-Router.get('/:team/update', teamController.showOne, teamViewController.updateTeam);
-Router.get('/:id/:team/players', playerController.showAll, playerViewController.showAll);
-Router.get('/players/:id/update',playerController.showOne, playerViewController.updatePlayer);
+//Only for AJAX
+Router.post('/teams/validate', teamController.validateTeam);
+
+
+Router.get('/:team/update', teamController.showOne, teamViewController.updateTeam,show404);
+Router.get('/:id/:team/players', playerController.showAll, playerViewController.showAll,show404);
+Router.get('/players/:id/update',playerController.showOne, playerViewController.updatePlayer,show404);
 Router.get('/teams/create', teamViewController.createTeam, show404);
-Router.get('/:name/:id/create', playerViewController.createPlayer);
+Router.get('/:name/:id/create', playerViewController.createPlayer,show404);
+
+Router.put('/:id/players',playerController.updatePlayer, show404);
+
+Router.post('/:id/:team/create', playerController.createPlayer, show404);
+
 Router.delete('/teams/:id/delete',teamController.deleteTeam, show404);
 Router.delete('/player/:name/:id/delete', playerController.deletePlayer, show404);
 

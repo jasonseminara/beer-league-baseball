@@ -35,7 +35,6 @@ function createPlayer(player) {
     `)
 }
 
-
 function updatePlayer(info) {
     return db.one(`
     UPDATE players
