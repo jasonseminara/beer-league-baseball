@@ -42,6 +42,7 @@ Router.route('/players/:id/edit')
 Router.delete('/players/:id/delete', playerController.deletePlayer, playerViewController.handleDeleteRedirect);
 
 Router.use(show404);
+
 Router.get('*', (req, res) => {
   res.redirect('/');
 });
